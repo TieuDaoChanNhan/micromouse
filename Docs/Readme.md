@@ -21,3 +21,8 @@ https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout
 
 Motor driver
 https://learn.adafruit.com/adafruit-drv8833-dc-stepper-motor-driver-breakout-board/overview
+
+//////////
+
+MPU6050
+http://community.heltec.cn/t/problem-using-mpu-6050-accel-gyro-with-wifikit-esp32-board/2227/8
