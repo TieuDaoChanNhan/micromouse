@@ -16,3 +16,8 @@ VL53l0x lazer sensor connection:
 https://copilot.microsoft.com/sl/jY64h9Ku57s
 https://github.com/pololu/vl53l0x-arduino
 https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout/arduino-code
+
+////////////////
+
+Motor driver
+https://learn.adafruit.com/adafruit-drv8833-dc-stepper-motor-driver-breakout-board/overview
