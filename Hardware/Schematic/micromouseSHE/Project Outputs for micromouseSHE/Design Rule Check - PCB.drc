@@ -1,10 +1,10 @@
 Protel Design System Design Rule Check
 PCB File : D:\Micro_Mouse\Hardware\Schematic\micromouseSHE\PCB.PcbDoc
 Date     : 16/08/2024
-Time     : 1:01:23 CH
+Time     : 2:41:39 CH
 
 WARNING: Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again
-   Polygon named: 3.3VS_L01_P001 On Top Layer
+   Polygon named: GND_L02_P000 On Top Layer
 
 Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
 Rule Violations :0
@@ -16,7 +16,7 @@ Processing Rule : Un-Routed Net Constraint ( (All) )
 Rule Violations :0
 
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
-   Violation between Modified Polygon: Polygon Not Repour After Edit  (3.3VS_L01_P001) on Top Layer 
+   Violation between Modified Polygon: Polygon Not Repour After Edit  (GND_L02_P000) on Bottom Layer 
 Rule Violations :1
 
 Processing Rule : Width Constraint (Min=0.254mm) (Max=0.762mm) (Preferred=0.508mm) (All)
@@ -44,8 +44,8 @@ Processing Rule : Net Antennae (Tolerance=0mm) (All)
 Rule Violations :0
 
 Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
-   Violation between Height Constraint: Small Component Motor1-Comment (69mm,-32mm) on Top Layer Actual Height = 28.275mm
-   Violation between Height Constraint: Small Component Motor2-Comment (69mm,32mm) on Top Layer Actual Height = 28.275mm
+   Violation between Height Constraint: Small Component Motor1-Comment (69mm,-33.5mm) on Top Layer Actual Height = 28.275mm
+   Violation between Height Constraint: Small Component Motor2-Comment (69mm,33.5mm) on Top Layer Actual Height = 28.275mm
 Rule Violations :2
 
 
