@@ -175,6 +175,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for micromouseSHE\Design Rule Check - PCB.html
+DItemRevisionGUID=
+
 [Parameter1]
 Name=title
 Value=Micromouse Circuit version 1.0
