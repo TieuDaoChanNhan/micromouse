@@ -25,4 +25,10 @@ https://learn.adafruit.com/adafruit-drv8833-dc-stepper-motor-driver-breakout-boa
 //////////
 
 MPU6050
+https://microcontrollerslab.com/micropython-mpu-6050-esp32-esp8266/
 http://community.heltec.cn/t/problem-using-mpu-6050-accel-gyro-with-wifikit-esp32-board/2227/8
+
+
+ESP32 pinout:
+https://lastminuteengineers.com/handling-esp32-gpio-interrupts-tutorial/
+https://lastminuteengineers.com/esp32-pinout-reference/
