@@ -2,6 +2,7 @@
 
 void Floodfill::initFloodfill(){
     m_dir = START_DIR;
+    m_destination = DEST_CENTER;
     m_x = 0;
     m_y = 0;
     for (int i = 0; i < MAZESIDE_SIZE; i++){
@@ -55,7 +56,7 @@ bool Floodfill::checkFinish(u8 destination){
         && m_y == 0);
 }
 
-void Floodfill::updateWalls(u8 m_view[4], u8 destination){
+void Floodfill::updateWalls(u8 m_view[4]){
     for (int i = 0; i < 4; i++){
         if (i == DIR_DOWN) continue;
         u8 new_dir = dir_change(m_dir, i);
@@ -67,16 +68,23 @@ void Floodfill::updateWalls(u8 m_view[4], u8 destination){
     maze[m_x][m_y].visited = 1;
 }
 
-u8 Floodfill::getNextCommand(u8 forward_blocked, u8 left_blocked, u8 right_blocked, u8 destination){
+u8 Floodfill::getNextCommand(u8 forward_blocked, u8 left_blocked, u8 right_blocked){
     u8 view_blocked[4] = { forward_blocked, left_blocked, 0, right_blocked };
-    if (checkFinish(destination)){
-        return COMMAND_STOP;
+    if (checkFinish(m_destination)){
+        m_destination = 1 - m_destination;
+        if (m_destination == DEST_CENTER){
+            floodfillToCenter();
+        }else{
+            floodfillToSource();
+        }
+        return STOP_MOUSE;
     }
+    if (m_destination)
     if (!maze[m_x][m_y].visited){
-        updateWalls(view_blocked, destination);
+        updateWalls(view_blocked);
     }
 
-    u8 best_dir = DIR_UP;
+    u8 best_dir = LOOK_FORWARD;
     u8 best_dist = INF;
     for (int i = 0; i < 4; i++){
         u8 new_dir = dir_change(m_dir, i);
@@ -87,19 +95,19 @@ u8 Floodfill::getNextCommand(u8 forward_blocked, u8 left_blocked, u8 right_block
     }
 
     if (best_dist >= maze[m_x][m_y].distance_to_dest){
-        if (destination == DEST_CENTER){
+        if (m_destination == DEST_CENTER){
             floodfillToCenter();
         }else{
             floodfillToSource();
         }
-        return getNextCommand(forward_blocked, left_blocked, right_blocked, destination);
+        return getNextCommand(forward_blocked, left_blocked, right_blocked);
     }
 
     return best_dir;
 }
 
-void Floodfill::changeDir(u8 dir){
-  m_dir = dir_change(m_dir, dir);
+void Floodfill::changeDir(u8 relative_dir){
+  m_dir = dir_change(m_dir, relative_dir);
 }
 
 void Floodfill::goForward(){
@@ -107,7 +115,7 @@ void Floodfill::goForward(){
   m_y += dy[m_dir];
 }
 
-void Floodfill::doCommand(u8 dir){
-    changeDir(dir);
+void Floodfill::doCommand(u8 relative_dir){
+    changeDir(relative_dir);
     goForward();
 }
