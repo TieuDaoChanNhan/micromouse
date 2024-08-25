@@ -29,8 +29,8 @@ void Floodfill::floodfillToCenter(){
         maze[i][j].distance_to_dest = INF;
         }
     }
-    for (u8 i = MAZESIDE_SIZE/2; i < MAZESIDE_SIZE/2 + 1; i++){
-        for (u8 j = MAZESIDE_SIZE/2; j < MAZESIDE_SIZE/2 + 1; j++){
+    for (u8 i = MAZESIDE_SIZE/2; i <= MAZESIDE_SIZE/2 + 1; i++){
+        for (u8 j = MAZESIDE_SIZE/2; j <= MAZESIDE_SIZE/2 + 1; j++){
             maze[i][j].distance_to_dest = 0;
             q.push(std::make_pair(i, j));
         }
