@@ -47,6 +47,26 @@ void Floodfill::floodfillToCenter(){
     }
 }
 
+void Floodfill::floodfillToSource(){
+    for (u8 i = 0; i < MAZESIDE_SIZE; i++){
+        for (u8 j = 0; j < MAZESIDE_SIZE; j++){
+        maze[i][j].distance_to_dest = INF;
+        }
+    }
+    maze[0][0].distance_to_dest=0;
+    q.push(std::make_pair(0,0));
+    while(!q.empty()){
+        auto u = q.front();
+        q.pop();
+        for (u8 i = 0; i < 4; i++){
+            if (!maze[u.first][u.second].blocked[i] && maze[u.first + dx[i]][u.second + dy[i]].distance_to_dest == INF){
+                maze[u.first + dx[i]][u.second + dy[i]].distance_to_dest = maze[u.first][u.second].distance_to_dest + 1;
+                q.push(std::make_pair(u.first + dx[i], u.second + dy[i]));
+            }
+        }
+    }
+}
+
 bool Floodfill::checkFinish(u8 destination){
     return (destination == DEST_CENTER 
         && MAZESIDE_SIZE/2 <= m_x && m_x <= MAZESIDE_SIZE/2 + 1 
